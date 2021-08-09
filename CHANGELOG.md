@@ -1,3 +1,10 @@
+## [1.6.1](https://github.com/brpaz/godog-api-context/compare/v1.6.0...v1.6.1) (2021-08-09)
+
+
+### Bug Fixes
+
+* variable name misstype in isEqualJson ([#6](https://github.com/brpaz/godog-api-context/issues/6)) ([d841da4](https://github.com/brpaz/godog-api-context/commit/d841da46ae9a90dfa4e1a254d4917253654b5c41))
+
 # [1.6.0](https://github.com/brpaz/godog-api-context/compare/v1.5.1...v1.6.0) (2021-04-11)
 
 
