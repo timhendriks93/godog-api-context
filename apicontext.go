@@ -151,6 +151,7 @@ func (ctx *ApiContext) ISetQueryParamsTo(dt *godog.Table) error {
 
 // ISendRequestTo Sends a request to the specified endpoint using the specified method.
 func (ctx *ApiContext) ISendRequestTo(method, uri string) error {
+	uri = ctx.ReplaceScopeVariables(uri)
 	reqURL := fmt.Sprintf("%s%s", ctx.baseURL, uri)
 
 	req, err := http.NewRequest(method, reqURL, nil)
@@ -200,7 +201,7 @@ func (ctx *ApiContext) ISendRequestTo(method, uri string) error {
 
 // ISendRequestToWithFormBody Send a request with json body. Ex: a POST request.
 func (ctx *ApiContext) ISendRequestToWithFormBody(method, uri string, requestBodyTable *godog.Table) error {
-
+	uri = ctx.ReplaceScopeVariables(uri)
 	reqURL := fmt.Sprintf("%s%s", ctx.baseURL, uri)
 
 	reqBody := &bytes.Buffer{}
@@ -277,7 +278,7 @@ func (ctx *ApiContext) ISendRequestToWithFormBody(method, uri string, requestBod
 
 // ISendRequestToWithBody Send a request with json body. Ex: a POST request.
 func (ctx *ApiContext) ISendRequestToWithBody(method, uri string, requestBody *godog.DocString) error {
-
+	uri = ctx.ReplaceScopeVariables(uri)
 	reqURL := fmt.Sprintf("%s%s", ctx.baseURL, uri)
 	jsonBody := ctx.ReplaceScopeVariables(requestBody.Content)
 	//todo
